@@ -2,19 +2,21 @@
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
-
+//     匿名函数闭包，防止污染全局作用域
 (function() {
 
   // Baseline setup
   // --------------
 
   // Establish the root object, `window` in the browser, or `exports` on the server.
+  // 建立root对象，用于替代BOM中的window或者服务器端的exports全局对象
   var root = this;
 
   // Save the previous value of the `_` variable.
   var previousUnderscore = root._;
 
   // Save bytes in the minified (but not gzipped) version:
+  // 保存数组，对象，函数的原型
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
   // Create quick reference variables for speed access to core prototypes.
